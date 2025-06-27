@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - YIHUN BEFIKADU ATILO</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f4f4f4;
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+    }
+
+    .cv-container {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      padding: 25mm;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cv-header {
+      text-align: center;
+      margin-bottom: 15mm;
+    }
+
+    .cv-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28pt;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #007BFF;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16pt;
+      color: #007BFF;
+      border-bottom: 1px solid #007BFF;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .links-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .links-row a {
+      flex: 1;
+      text-decoration: none;
+      color: #007BFF;
+    }
+
+    .language-item, .skill-item {
+      margin-bottom: 12px;
+    }
+
+    .language-item h5 i,
+    .skill-item h5 i {
+      margin-right: 6px;
+    }
+
+    .progress {
+      height: 20px;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+    }
+
+    .print-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+
+    @media print {
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Save PDF Button -->
+<button id="save-pdf" class="btn btn-danger print-button">
+  <i class="fas fa-file-pdf"></i> Save PDF
+</button>
+
+<!-- Main CV Container -->
+<div class="cv-container" id="cv-container">
+  <div class="cv-header">
+    <img src="yihun prtrait.jpg" alt="Yihun's Portrait" class="profile-img">
+    <h1>YIHUN BEFIKADU ATILO</h1>
+    <p><strong>Product Marketing Manager</strong></p>
+    <p>
+      <i class="fas fa-map-marker-alt"></i> Tepi, Sheka, SWE, Ethiopia<br>
+      <i class="fas fa-phone"></i> <a href="tel:+251917462315">+251917462315</a> |
+      <i class="fas fa-envelope"></i> <a href="mailto:yihunbefkaduat@gmail.com">yihunbefkaduat@gmail.com</a>
+    </p>
+  </div>
+
+  <!-- Links -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-link"></i> LINKS</div>
+    <div class="links-row">
+      <a href="https://web.facebook.com/SportasirC" target="_blank"><i class="fab fa-facebook"></i> My Facebook Page (113K+)</a>
+      <a href="https://web.facebook.com/groups/175280257582434/permalink/446129557164168/" target="_blank"><i class="fab fa-facebook"></i> My Facebook Group (325K+)</a>
+    </div>
+  </div>
+
+  <!-- Profile -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-user"></i> PROFILE</div>
+    <p>Creative and driven graphic designer with experience in managing large online communities and creating engaging content. Proficient in Adobe Illustrator and Photoshop, passionate about impactful marketing strategies and brand promotion.</p>
+  </div>
+
+  <!-- Who I Am -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-user-friends"></i> WHO I AM</div>
+    <p>Passionate and dedicated creative, blending design and technology to solve real-world problems. Always ready to learn, grow, and create meaningful digital experiences.</p>
+  </div>
+
+  <!-- Employment -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-briefcase"></i> EMPLOYMENT HISTORY</div>
+    <p><strong><i class="fas fa-calendar-alt"></i> Jun 2018</strong><br>
+      <strong>Freelance Graphic Designer & Social Media Manager</strong><br>
+      <i class="fas fa-paint-brush"></i> Created logos, graphics & content<br>
+      <i class="fas fa-users"></i> Managed Facebook communities (360k+ members)<br>
+      <i class="fas fa-chart-line"></i> Boosted engagement through strategic promotion
+    </p>
+    <p><strong><i class="fas fa-calendar-alt"></i> Sep 2022</strong><br>
+      <strong>YouTube Channel Manager</strong><br>
+      <i class="fas fa-video"></i> Created and managed AI-generated short stories<br>
+      <i class="fas fa-thumbs-up"></i> Improved viewer retention and thumbnail strategy
+    </p>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-graduation-cap"></i> EDUCATION</div>
+    <p><strong>2015–2017:</strong> High School, Tepi – 10th grade GPA: 4.00</p>
+    <p><strong>2017–2019:</strong> Tepi Prep – National Exam Score: 460</p>
+    <p><strong>2019–2025:</strong> Electrical Engineering, Hawassa University (3.31 CGPA)</p>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-tools"></i> SKILLS</div>
+    <div class="skill-item">
+      <h5><i class="fas fa-comments"></i> Communication</h5>
+      <div class="progress"><div class="progress-bar bg-success" style="width: 80%;">80%</div></div>
+    </div>
+    <div class="skill-item">
+      <h5><i class="fas fa-users-cog"></i> Social Media & Time Management</h5>
+      <div class="progress"><div class="progress-bar bg-info" style="width: 85%;">85%</div></div>
+    </div>
+    <div class="skill-item">
+      <h5><i class="fas fa-edit"></i> Content Creation & Design</h5>
+      <div class="progress"><div class="progress-bar bg-primary" style="width: 85%;">85%</div></div>
+    </div>
+    <div class="skill-item">
+      <h5><i class="fas fa-bullhorn"></i> Brand Promotion</h5>
+      <div class="progress"><div class="progress-bar bg-warning" style="width: 75%;">75%</div></div>
+    </div>
+  </div>
+
+  <!-- Hobbies -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-heart"></i> HOBBIES</div>
+    <p>Football, Video Games, Movies, Drawing</p>
+  </div>
+
+  <!-- Languages -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-language"></i> LANGUAGES</div>
+    <div class="language-item">
+      <h5><i class="fas fa-check-circle"></i> Shekinoono <span class="badge badge-success">Native</span></h5>
+      <div class="progress"><div class="progress-bar bg-success" style="width: 100%;">100%</div></div>
+    </div>
+    <div class="language-item">
+      <h5><i class="fas fa-check-circle"></i> English <span class="badge badge-info">Very Good</span></h5>
+      <div class="progress"><div class="progress-bar bg-info" style="width: 80%;">80%</div></div>
+    </div>
+    <div class="language-item">
+      <h5><i class="fas fa-check-circle"></i> Amharic <span class="badge badge-warning">Highly Proficient</span></h5>
+      <div class="progress"><div class="progress-bar bg-warning" style="width: 90%;">90%</div></div>
+    </div>
+  </div>
+
+  <!-- Dream -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-lightbulb"></i> DREAM</div>
+    <h5><i class="fas fa-rocket"></i> Start my own creative studio</h5>
+    <p>Merge design, tech & storytelling to create impactful and innovative projects.</p>
+  </div>
+</div>
+
+<!-- html2pdf Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+<script>
+  document.getElementById("save-pdf").addEventListener("click", function () {
+    const element = document.getElementById("cv-container");
+    const opt = {
+      margin:       10,
+      filename:     'YIHUN_BEFFIKADU_ATILO_CV.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+  });
+</script>
+
+</body>
+</html>

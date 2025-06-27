@@ -1,0 +1,108 @@
+<?php
+session_start();
+
+// Process form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Include the database connection
+    $pdo = require 'DB_Bifrost.php';
+
+    // Get form values
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    // Prepare and execute query to find the user by email
+    $stmt = $pdo->prepare("SELECT * FROM Users WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Check if user exists and verify the password
+    if ($user) {
+        // Verify password using password_verify (assuming password_hash() was used to store passwords)
+        if (password_verify($password, $user['password_hash'])) {
+            // Store user details in session
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['role'] = $user['role'];
+            
+            // Redirect based on role
+            if ($user['role'] === 'Admin') {
+                header("Location: adminpanel.php");
+                exit;
+            } else {
+                header("Location: traveler.php");
+                exit;
+            }
+        } else {
+            $error = "Invalid password!";
+        }
+    } else {
+        $error = "No user found with this email!";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - AsgardTour</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container {
+            width: 300px;
+            margin: 80px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px #aaa;
+        }
+        .login-container h2 {
+            text-align: center;
+        }
+        .login-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #5cb85c;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <?php if (isset($error)): ?>
+            <div class="error"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+        <form method="post" action="">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

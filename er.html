@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ER Diagram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .diagram {
+      position: relative;
+      width: 760px;
+      height: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #ccc;
+    }
+    .entity {
+      position: absolute;
+      width: 200px;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 4px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .entity h2 {
+      margin: 0;
+      background: #eee;
+      padding: 6px;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+      text-align: center;
+    }
+    .entity ul {
+      list-style: none;
+      padding: 6px;
+      margin: 0;
+    }
+    .entity li {
+      font-size: 14px;
+      padding: 2px 0;
+    }
+    .entity .pk {
+      font-weight: bold;
+    }
+    .entity .fk {
+      font-style: italic;
+    }
+    .connections {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .connections line,
+    .connections polyline {
+      stroke: #333;
+      stroke-width: 2;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+    .connections text {
+      font-size: 12px;
+      fill: #333;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram">
+    <!-- ENTITIES -->
+    <div id="users" class="entity" style="top: 20px; left: 20px; height: 300px;">
+      <h2>users</h2>
+      <ul>
+        <li class="pk">user_id</li>
+        <li>name</li>
+        <li>email</li>
+        <li>password_hash</li>
+        <li>role</li>
+        <li>profile_picture</li>
+        <li>nationality</li>
+        <li>phone_number</li>
+        <li>date_of_birth</li>
+        <li>preferred_language</li>
+        <li>home_address</li>
+        <li>gender</li>
+        <li>created_at</li>
+      </ul>
+    </div>
+
+    <div id="tours" class="entity" style="top: 20px; left: 260px; height: 300px;">
+      <h2>tours</h2>
+      <ul>
+        <li class="pk">tour_id</li>
+        <li>title</li>
+        <li>description</li>
+        <li>price</li>
+        <li>start_date</li>
+        <li>end_date</li>
+        <li>location</li>
+        <li>main_image</li>
+        <li>video_url</li>
+        <li>created_at</li>
+        <li>status</li>
+        <li>featured</li>
+        <li>recommended</li>
+      </ul>
+    </div>
+
+    <div id="blogs" class="entity" style="top: 20px; left: 500px; height: 260px;">
+      <h2>blogs</h2>
+      <ul>
+        <li class="pk">blog_id</li>
+        <li class="fk">user_id → users</li>
+        <li>title</li>
+        <li>content</li>
+        <li>location</li>
+        <li>likes</li>
+        <li>created_at</li>
+        <li>image</li>
+      </ul>
+    </div>
+
+    <div id="bookings" class="entity" style="top: 360px; left: 20px; height: 200px;">
+      <h2>bookings</h2>
+      <ul>
+        <li class="pk">booking_id</li>
+        <li class="fk">user_id → users</li>
+        <li class="fk">tour_id → tours</li>
+        <li>booking_date</li>
+        <li>status</li>
+        <li>booking_day</li>
+      </ul>
+    </div>
+
+    <div id="reviews" class="entity" style="top: 360px; left: 260px; height: 200px;">
+      <h2>reviews</h2>
+      <ul>
+        <li class="pk">review_id</li>
+        <li class="fk">user_id → users</li>
+        <li class="fk">tour_id → tours</li>
+        <li>rating</li>
+        <li>comment</li>
+        <li>created_at</li>
+      </ul>
+    </div>
+
+    <div id="tour_ratings" class="entity" style="top: 360px; left: 500px; height: 200px;">
+      <h2>tour_ratings</h2>
+      <ul>
+        <li class="pk">rating_id</li>
+        <li class="fk">user_id → users</li>
+        <li class="fk">tour_id → tours</li>
+        <li>rating</li>
+        <li>created_at</li>
+      </ul>
+    </div>
+
+    <div id="galleryimages" class="entity" style="top: 620px; left: 20px; height: 160px;">
+      <h2>galleryimages</h2>
+      <ul>
+        <li class="pk">gallery_image_id</li>
+        <li class="fk">tour_id → tours</li>
+        <li>image_url</li>
+        <li>uploaded_at</li>
+      </ul>
+    </div>
+
+    <div id="multimedia" class="entity" style="top: 620px; left: 260px; height: 160px;">
+      <h2>multimedia</h2>
+      <ul>
+        <li class="pk">media_id</li>
+        <li class="fk">tour_id → tours</li>
+        <li>media_type</li>
+        <li>media_url</li>
+        <li>uploaded_at</li>
+      </ul>
+    </div>
+
+    <div id="videogallery" class="entity" style="top: 620px; left: 500px; height: 180px;">
+      <h2>videogallery</h2>
+      <ul>
+        <li class="pk">gallery_video_id</li>
+        <li class="fk">tour_id → tours</li>
+        <li>video_url</li>
+        <li>description</li>
+        <li>uploaded_at</li>
+      </ul>
+    </div>
+
+    <div id="notifications" class="entity" style="top: 820px; left: 20px; height: 160px;">
+      <h2>notifications</h2>
+      <ul>
+        <li class="pk">notification_id</li>
+        <li class="fk">user_id → users</li>
+        <li>message</li>
+        <li>type</li>
+        <li>created_at</li>
+      </ul>
+    </div>
+
+    <div id="newsletter_subscribers" class="entity" style="top: 820px; left: 260px; height: 120px;">
+      <h2>newsletter_subscribers</h2>
+      <ul>
+        <li class="pk">subscriber_id</li>
+        <li>email</li>
+        <li>subscribed_at</li>
+      </ul>
+    </div>
+
+    <!-- RELATIONSHIP LINES & CARDINALITIES -->
+    <svg class="connections">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+          <path d="M0,0 L10,5 L0,10 Z" fill="#333" />
+        </marker>
+      </defs>
+
+      <!-- users → blogs -->
+      <line x1="220" y1="170" x2="500" y2="150" />
+      <text x="230" y="160">1</text>
+      <text x="490" y="140">N</text>
+
+      <!-- users → bookings -->
+      <line x1="120" y1="320" x2="120" y2="360" />
+      <text x="100" y="340">1</text>
+      <text x="130" y="370">N</text>
+
+      <!-- tours → bookings -->
+      <polyline points="360,340 360,360 220,360" />
+      <text x="350" y="350">1</text>
+      <text x="250" y="370">N</text>
+
+      <!-- users → reviews -->
+      <line x1="120" y1="320" x2="300" y2="360" />
+      <text x="100" y="340">1</text>
+      <text x="280" y="380">N</text>
+
+      <!-- tours → reviews -->
+      <line x1="400" y1="340" x2="300" y2="360" />
+      <text x="390" y="350">1</text>
+      <text x="310" y="380">N</text>
+
+      <!-- users → tour_ratings -->
+      <line x1="120" y1="320" x2="500" y2="360" />
+      <text x="100" y="340">1</text>
+      <text x="480" y="380">N</text>
+
+      <!-- tours → tour_ratings -->
+      <line x1="400" y1="340" x2="500" y2="360" />
+      <text x="390" y="350">1</text>
+      <text x="480" y="380">N</text>
+
+      <!-- tours → galleryimages -->
+      <polyline points="400,340 120,620" />
+      <text x="380" y="360">1</text>
+      <text x="150" y="630">N</text>
+
+      <!-- tours → multimedia -->
+      <polyline points="400,340 360,620" />
+      <text x="380" y="360">1</text>
+      <text x="370" y="630">N</text>
+
+      <!-- tours → videogallery -->
+      <line x1="400" y1="340" x2="500" y2="620" />
+      <text x="390" y="350">1</text>
+      <text x="480" y="630">N</text>
+
+      <!-- users → notifications -->
+      <line x1="120" y1="320" x2="120" y2="820" />
+      <text x="100" y="520">1</text>
+      <text x="130" y="830">N</text>
+    </svg>
+  </div>
+</body>
+</html>
